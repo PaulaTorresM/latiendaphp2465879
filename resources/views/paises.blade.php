@@ -8,15 +8,21 @@
     <title>Document</title>
 </head>
 <body>
+<style>
+    
+        
+        </style>
+
+
     <h1>Paises de la region</h1>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Pais</th>
-                <th>Capital</th>
-                <th>Moneda</th>
-                <th>Poblacion</th>
-                <th>Ciudades</th>
+                <th class="table-primary">Pais</th>
+                <th class="table-primary">Capital</th>
+                <th class="table-primary">Moneda</th>
+                <th class="table-primary">Poblacion</th>
+                <th class="table-primary">Ciudades</th>
 
             </tr>
         </thead>
@@ -24,22 +30,22 @@
 
                 @foreach($paises as $pais => $infopais)
                 <tr>
-                    <td rowspan="3">
+                    <td class="table-info"rowspan="3">
                         {{ $pais }}
                     </td>
-                    <td rowspan="3">
+                    <td class="table-danger"rowspan="3">
                         {{ $infopais["capital"]}}
                     </td>
                     
-                    <td rowspan="3">
+                    <td class="table-info"rowspan="3">
                         {{ $infopais["moneda"]}}
                     </td>
 
-                    <td rowspan="3">
+                    <td class="table-danger"rowspan="3">
                         {{ $infopais["poblacion"]}}
                     </td>
                     @foreach($infopais["ciudades"] as $ciudad)
-                 <th>
+                 <th class="table-success">
                      {{ $ciudad }}
                  </th>
 
