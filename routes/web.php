@@ -24,7 +24,7 @@ Route::get('paises', function(){
             "capital" => "Bogotá",
             "moneda" => "peso",
             "poblacion" => 51.6,
-            "cuidades" => [
+            "ciudades" => [
                 "Medellin",
                 "Cali",
                 "Barranquilla"
@@ -34,7 +34,7 @@ Route::get('paises', function(){
             "capital" => "Lima",
             "moneda" => "sol",
             "poblacion" => 32.9,
-            "cuidades" => [
+            "ciudades" => [
                 "Puno",
                 "Chiclayo",
                 "Chimbote"
@@ -44,7 +44,7 @@ Route::get('paises', function(){
             "capital" => "Asuncion",
             "moneda" => "guarani",
             "poblacion" => 71.3,
-            "cuidades" => [
+            "ciudades" => [
                 "Capiata",
                 "Ñembi",
                 "Villa Elisa"
