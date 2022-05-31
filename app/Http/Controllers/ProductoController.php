@@ -49,19 +49,25 @@ class ProductoController extends Controller
     public function store(Request $r)
     {
         $reglas = [
-            "nombre" => 'required|alpha',
+            "nombre" => 'required|alpha|unique:productos,nombre',
             "descripcion" => 'required|min:10|max:30',
             "precio" => 'required|numeric',
             "marca" => 'required',
-            "categoria" => 'required'
+            "categoria" => 'required',
+            "imagen" => 'required|image'
+
 
         ];
 
         //mensajes personalizados
         $mensaje = [
             "required" => "Campo obligatorio",
+            "min"  => "el campo debe tener minimo 10 caracteres",
             "numeric" => "solo numeros",
-            "alpha" => "solo letras"
+            "alpha" => "solo letras",
+            "image" => "El archivo debe ser tipo png o jpg",
+            "unique" => "El nombre que eligio no esta disponible"
+            
 
         ];
 
@@ -82,19 +88,33 @@ class ProductoController extends Controller
              
 
         }
-else{//validacion correcta
+else{
+    //asignar a una variable nombre_archivo
+   $nombre_archivo =  $r->imagen->getClientOriginalName();
+
+   $archivo = $r->imagen;
+   //mover el archivo en la carpeta public
+  $ruta = public_path().'/img';
+  $archivo->move($ruta, $nombre_archivo);
+
+    
+    
+    //validacion correcta
 //crear entidad de producto
 $p = new Producto;
 //asignar valores a astributos del nuevo producto
 $p->nombre=$r->nombre;
 $p->descripcion=$r->descripcion;
 $p->precio=$r->precio;
+$p->imagen=$nombre_archivo;
 $p->marca_id=$r->marca;
 $p->categoria_id=$r->categoria;
 $p->save();
+
+
 //redireccionar a la ruta
 return redirect('productos/create')
-        ->with('mensaje', 'Producto Registrado');
+       ->with('mensaje', 'Producto Registrado');
         
 
         }
