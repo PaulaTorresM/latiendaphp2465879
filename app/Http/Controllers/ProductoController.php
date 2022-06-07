@@ -19,8 +19,14 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        echo 'aqui va a ir el catalogo de productos';
-    }
+        //SELECCION DE TODOS LOS PRODUCTOS
+
+        $productos = Producto::all();
+        //mostrar la vista del catalogo llevando la lista de productos
+        return view('productos.index')
+        ->with('productos', $productos);
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -130,7 +136,11 @@ return redirect('productos/create')
      */
     public function show($producto)
     {
-        echo "aqui va la informacion del producto cuyo ID es: $producto";
+        $producto = Producto::find($producto);
+        //mostrar vista de detalles llevandole el producto seleccioando
+        return view ('productos.details')
+        ->with('producto', $producto);
+
     }
 
     /**
