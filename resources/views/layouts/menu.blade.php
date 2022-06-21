@@ -11,10 +11,10 @@
 <body>
 <nav>
     <div class="nav-wrapper purple lighten-3">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo">Capcom Studios</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="badges.html">Productos</a></li>
-        <li><a href="collapsible.html">Pedidos</a></li>
+        <li><a href="{{route('productos.index')}}">Productos</a></li>
+        <li><a href="{{route('cart.index')}}">Pedidos</a></li>
       </ul>
     </div>
   </nav>

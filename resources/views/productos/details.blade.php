@@ -4,7 +4,7 @@
 @section('contenido')
 
 <div class="row">
-    <h1>{{$producto->nombre}}</h1>
+    <h1 class="center-align">{{$producto->nombre}}</h1>
 </div>
 
 <div class="row">
@@ -33,6 +33,8 @@
     <form action="{{route('cart.store')}}" method="POST">
         @csrf
         <input type="type-hidden" name="prod_id" value="{{$producto->id}}">
+        <input type="type-hidden" name="prod_nombre" value="{{$producto->nombre}}">
+        <input type="type-hidden" name="prod_precio" value="{{$producto->precio}}">
 
         
     <div class="row">
